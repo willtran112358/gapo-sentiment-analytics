@@ -56,7 +56,7 @@ def build_pipeline() -> Pipeline:
     return Pipeline(
         [
             ("tfidf", TfidfVectorizer(ngram_range=(1, 2), max_features=8000)),
-            ("clf", LogisticRegression(max_iter=500, multi_class="ovr")),
+            ("clf", LogisticRegression(max_iter=500)),
         ]
     )
 
