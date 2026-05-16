@@ -24,7 +24,8 @@ def main() -> None:
     trending = build_trending_frame(results, meta)
     print("--- Scored posts ---")
     for r in results:
-        print(f"[{r.label:8}] {r.confidence:.2f} | {r.text[:60]}")
+        line = f"[{r.label:8}] {r.confidence:.2f} | {r.text[:60]}"
+        print(line.encode("utf-8", errors="replace").decode("utf-8"))
     print("\n--- Trending ---")
     print(trending.head(10).to_string(index=False) if not trending.empty else "(empty)")
 
