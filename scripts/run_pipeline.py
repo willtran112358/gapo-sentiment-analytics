@@ -1,14 +1,17 @@
 """End-to-end: crawl → score → trending aggregate."""
 
+import sys
 from pathlib import Path
 
 import pandas as pd
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 from src.analytics.trending import build_trending_frame
 from src.crawler.feed_crawler import GapoFeedCrawler
 from src.ml.sentiment_model import load_or_train, predict_sentiment
 
-ROOT = Path(__file__).resolve().parents[1]
 MODEL = ROOT / "models" / "sentiment_v1.joblib"
 
 
